@@ -43,8 +43,12 @@ public class DailyPower {
     private static double getSupport(double usage, double price) {
 
         double support = 0;
+        double prisTime = usage * price;
 
-        // TODO
+        if (prisTime > THRESHOLD) {
+            support = prisTime * PERCENTAGE; 
+            System.out.println("Støtte: " + support + "kr");
+        }
 
         return support;
     }
@@ -54,7 +58,9 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
+        for (int i = 0; i < prices.length; i++) {
+            support += getSupport(usage[i], prices[i]);
+        } 
 
         return support;
     }
@@ -66,17 +72,27 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += usage[i] * NORGESPRIS_KWH;
+        }
+
+        System.out.println("Norges prisen er " + price + "kr");
 
         return price;
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         double temp_max = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            if (usage[i] > temp_max) {
+                temp_max = usage[i];
+            }
+        }
+
+        System.out.println("Største strømforbruk for dagen er " + temp_max + "kWh");
 
         return temp_max;
     }
@@ -84,8 +100,15 @@ public class DailyPower {
     public static double findAvgPower(double[] usage) {
 
         double average = 0;
+        double sum = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            sum += usage[i];
+        }
+
+        average = (sum/usage.length);
+
+        System.out.printf("Gjennomsnittlig strømforbruk er %.3f kWh %n", average);
 
         return average;
     }

@@ -16,6 +16,8 @@ public class DayMain {
         System.out.println("==============");
         System.out.println();
 
+
+        DailyPower.findAvgPower(powerusage_day);
         /*
         TODO
 
