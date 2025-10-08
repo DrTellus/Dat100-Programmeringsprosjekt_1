@@ -7,14 +7,38 @@ public class MonthlyPower {
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
 
-        // TODO
+        for(int i = 0; i < usage.length; i++) {
+            System.out.print("Dag " + (i+1) + " har forbruk: ");
+            for(int j = 0; j < usage[i].length; j++) {
+                double pris = usage[i][j];
+
+                System.out.print(pris + " kWh ");
+
+
+            }System.out.println();
+
+        }
 
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
 
-        // TODO
+        for(int i = 0; i < prices.length; i++) {
+            System.out.print("Dag " + (i+1) + " har pris: ");
+            for(int j = 0; j < prices[i].length; j++) {
+                double pris = prices[i][j];
+
+                System.out.print(pris + " NOK ");
+
+
+            }System.out.println();
+
+        }
+
+
+
+
 
     }
 
@@ -22,8 +46,13 @@ public class MonthlyPower {
     public static double computePowerUsage(double[][] usage) {
 
         double sum = 0;
+        for (int i = 0; i< usage.length; i++) {
+            for (int j = 0; j< usage[i].length; j++) {
+                sum += usage[i][j];
+            }
+        }System.out.printf("Totalforbruk på en måned er %.2f %n" , sum);
 
-        // TODO
+
 
         return sum;
     }
@@ -33,10 +62,37 @@ public class MonthlyPower {
 
         boolean exceeded = false;
         double usage = 0;
+        int i = 0;
 
-        // TODO
+        while(i < powerusage.length && usage < threshold) {
+            for(int j = 0; j < powerusage[i].length; j++) {
+                usage += powerusage[i][j];
+                if (usage >= threshold) {
+                    System.out.println("Terskel på " + threshold + " kWh er overskredet.");
+                    return true;
+                }
+            }
+            i++;
+        }
+        System.out.println("Terskel på " + threshold + " kWh er ikke overskredet.");
+        return false;
 
-        return exceeded;
+    /*    while(usage<threshold) {
+
+         for(int i = 0; i< powerusage.length; i++)   {
+             for(int j = 0; j < powerusage[i].length; j++){
+                 usage = usage + powerusage[i][j];
+                 if (usage >= threshold){
+                     return exceeded = true;
+                 }
+             }
+         }
+         exceeded = false;
+
+        }
+
+        exceeded = false;
+        System.out.println("månedlig forbruk har blitt overskredet.");*/
     }
 
     // e) compute spot price
