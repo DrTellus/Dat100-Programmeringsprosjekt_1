@@ -77,32 +77,21 @@ public class MonthlyPower {
         System.out.println("Terskel på " + threshold + " kWh er ikke overskredet.");
         return false;
 
-    /*    while(usage<threshold) {
 
-         for(int i = 0; i< powerusage.length; i++)   {
-             for(int j = 0; j < powerusage[i].length; j++){
-                 usage = usage + powerusage[i][j];
-                 if (usage >= threshold){
-                     return exceeded = true;
-                 }
-             }
-         }
-         exceeded = false;
-
-        }
-
-        exceeded = false;
-        System.out.println("månedlig forbruk har blitt overskredet.");*/
     }
 
     // e) compute spot price
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
+        double strompris = 0;
+        for (int i = 0; i<usage.length; i++) {
+            for (int j = 0; j < usage[i].length; j++) {
+                strompris += usage[i][j]*prices[i][j];//kWh*kr/kwh=kostnad
+            }
+        }
 
-        double price = 0;
 
-        // TODO
-
-        return price;
+        System.out.printf("strømprisen er %.2f kr %n" , strompris);
+        return strompris;
     }
 
     // f) power support for the month

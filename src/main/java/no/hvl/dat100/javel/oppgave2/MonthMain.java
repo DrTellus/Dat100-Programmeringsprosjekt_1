@@ -27,6 +27,8 @@ public class MonthMain {
         MonthlyPower.exceedThreshold(power_prices_month, 1000);
         MonthlyPower.exceedThreshold(power_prices_month, 5000);
 
+        MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
+
 
 
          /*Write code that tests the methods you implement in the MonthlyPower class
