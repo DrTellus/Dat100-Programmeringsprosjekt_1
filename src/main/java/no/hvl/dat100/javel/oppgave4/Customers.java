@@ -8,18 +8,20 @@ public class Customers {
 
     // a) Complete constructor
     public Customers(int size) {
-
-        // TODO
+        customers = new Customer[size];
 
     }
 
     // b) count number of non-null references
     public int countNonNull() {
 
-
         int count = 0;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] !=  null){
+                count++;
+            }
+        }
 
         return count;
     }
@@ -30,7 +32,13 @@ public class Customers {
         boolean funnet = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] !=null && customers[i].getCustomer_id() == customer_id){
+                funnet = true;
+                c = customers[i];
+                return c;
+            }
+        }
 
         return c;
     }
@@ -40,7 +48,14 @@ public class Customers {
 
         boolean inserted = false;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++){
+            if (customers[i] == null){
+                customers[i] = c;
+                inserted = true;
+                return inserted;
+
+            }
+        }
 
         return inserted;
     }
@@ -51,7 +66,13 @@ public class Customers {
         boolean deleted = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++){
+            if(customers[i] != null &&  customers[i].getCustomer_id() == customer_id){
+                c = customers[i];
+                customers[i] = null;
+                return c;
+            }
+        }
 
         return c;
     }
@@ -59,10 +80,18 @@ public class Customers {
     // f) return reference table with all customers
     public Customer[] getCustomers() {
 
-        Customer[] customers = null;
+        Customer[] customerArray = null;
 
-        // TODO
+        customerArray = new Customer[countNonNull()];
+        int posisjon = 0;
 
-        return customers;
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null){
+                customerArray[posisjon] = customers[i];
+                posisjon++;
+            }
+        }
+
+        return customerArray;
     }
 }
