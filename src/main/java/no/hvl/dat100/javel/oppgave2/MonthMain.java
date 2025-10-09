@@ -17,8 +17,28 @@ public class MonthMain {
         System.out.println("==============");
         System.out.println();
 
+        //a)
+//        MonthlyPower.print_PowerUsage(power_usage_month);
+
+        //b)
+//        MonthlyPower.print_PowerPrices(power_prices_month);
+
+        //c)
+//        MonthlyPower.computePowerUsage(power_usage_month);
+
+        //d)
+//        MonthlyPower.exceedThreshold(power_usage_month, 1000);
+
+        //e)
+//        MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
+
+        //f)
+//        MonthlyPower.computePowerSupport(power_usage_month,power_prices_month);
+
+        //g)
+        MonthlyPower.computeNorgesPrice(power_usage_month);
+
         /*
-        TODO
 
          Write code that tests the methods you implement in the MonthlyPower class
          Remember to teste the methods as you implement them

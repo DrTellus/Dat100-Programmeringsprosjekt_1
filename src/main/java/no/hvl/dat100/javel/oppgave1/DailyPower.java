@@ -46,7 +46,8 @@ public class DailyPower {
         double prisTime = usage * price;
 
         if (prisTime > THRESHOLD) {
-            support = prisTime * PERCENTAGE; 
+            prisTime -= THRESHOLD;
+            support = prisTime * PERCENTAGE;
             System.out.println("Støtte: " + support + "kr");
         }
 
