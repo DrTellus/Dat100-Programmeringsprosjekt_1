@@ -2,6 +2,8 @@ package no.hvl.dat100.javel.oppgave2;
 
 import no.hvl.dat100.javel.oppgave1.DailyPower;
 
+import java.awt.*;
+
 public class MonthlyPower {
 
     // a) print power usage for a month
@@ -64,7 +66,7 @@ public class MonthlyPower {
         double usage = 0;
         int i = 0;
 
-        while(i < powerusage.length && usage < threshold) {
+        while(i < powerusage.length && usage < threshold) { //kapeittel 3 i boka om while-løkker
             for(int j = 0; j < powerusage[i].length; j++) {
                 usage += powerusage[i][j];
                 if (usage >= threshold) {
@@ -98,19 +100,37 @@ public class MonthlyPower {
     public static double computePowerSupport(double[][] usage, double[][] prices) {
 
         double support = 0;
+        double stromPris = 0;
+        double threshold = 0.9375;
+        for (int i = 0; i < usage.length; i++) {
+            for (int j = 0; j < usage[i].length; j++) {
+                stromPris = prices[i][j];
 
-        // TODO
-
+                if (stromPris > threshold) {
+                    support += (stromPris-threshold) * usage[i][j];
+                    //System.out.println("supporten er på " + support);
+                }
+            }
+        }
+        System.out.printf("Supporten er på %.2f kr%n", support);
         return support;
     }
-
     // g) Norgesprice for the month
     public static double computeNorgesPrice(double[][] usage) {
 
-        double price = 0;
+        double price = 0.5;
+        double forbruk = 0.0;
 
         // TODO
+        for (double[] uke:usage) {
+            for (double time : uke){
+                forbruk += time;
+            }
 
-        return price;
+        }
+        double totpris = forbruk * price;
+        System.out.printf("Prisen med norgespris er %.2f kr%n", totpris);
+        return totpris;
+
     }
 }
