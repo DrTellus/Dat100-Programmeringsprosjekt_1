@@ -8,7 +8,7 @@ public class Customer {
     private int customer_id;
     private PowerAgreementType agreement;
 
-    // TODO - object variables (attributes)
+  
 
 
     public Customer(String name, String email, int customer_id, PowerAgreementType agreement) {
@@ -19,7 +19,7 @@ public class Customer {
         this.agreement = agreement;
 
 
-        // TODO
+
     //c
     }
     public String getName() {
@@ -48,7 +48,7 @@ public class Customer {
         this.agreement = agreement;
     }
 
-    // TODO - getter/setter methods for all objectvariables
+
 
     public String toString() {
         return  "Navn : " + name + "\n" +
@@ -57,6 +57,5 @@ public class Customer {
                 "avtaletype: " + agreement;
     }
 
-    // TODO - toString method
 
 }
