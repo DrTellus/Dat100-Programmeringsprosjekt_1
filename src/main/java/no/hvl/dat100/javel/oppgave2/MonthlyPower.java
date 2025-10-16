@@ -70,12 +70,12 @@ public class MonthlyPower {
 
         for (int i = 0; i < usage.length; i++) {
             for (int j = 0; j < usage[i].length; j++) {
-                price = usage[i][j] * prices[i][j];
+                price += (usage[i][j] * prices[i][j]);
 
-                System.out.printf("Spotpris: %.2f kr%n",price);
             }
         }
-        
+        System.out.printf("Spotpris for måneden: %.2f NOK %n",price);
+
         return price;
     }
 
@@ -98,7 +98,7 @@ public class MonthlyPower {
             }
         }
 
-        System.out.println("Støtte er " + support + "kr");
+        System.out.printf("Støtte denne måneden er %.2f NOK %n", support);
 
         return support;
     }
@@ -114,10 +114,10 @@ public class MonthlyPower {
                 prisDag += (forburk * 0.5);
                 price += (forburk * 0.5);
             }
-            System.out.printf("Dag prisen er %.2f kroner %n", prisDag);
+//            System.out.printf("Dag prisen er %.2f kroner %n", prisDag);
         }
 
-        System.out.printf("Norgespris i denne måneden er %.2f kroner %n", price);
+        System.out.printf("Norgespris i denne måneden er %.2f NOK %n", price);
 
 
         return price;

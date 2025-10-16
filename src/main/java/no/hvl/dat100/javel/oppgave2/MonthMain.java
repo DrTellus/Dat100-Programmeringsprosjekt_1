@@ -30,13 +30,13 @@ public class MonthMain {
 //        MonthlyPower.exceedThreshold(power_usage_month, 1000);
 
         //e)
-//        MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
+        MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
 
         //f)
 //        MonthlyPower.computePowerSupport(power_usage_month,power_prices_month);
 
         //g)
-        MonthlyPower.computeNorgesPrice(power_usage_month);
+//        MonthlyPower.computeNorgesPrice(power_usage_month);
 
         /*
 

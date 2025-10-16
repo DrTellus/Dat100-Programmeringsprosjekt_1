@@ -21,8 +21,7 @@ public class CustomerMain {
         System.out.println(customer1.getName());
 
         //Tester standard verdi
-        Customer customer2 = new Customer();
-        customer2.skrivUt();
+
 
         /*
         TODO
