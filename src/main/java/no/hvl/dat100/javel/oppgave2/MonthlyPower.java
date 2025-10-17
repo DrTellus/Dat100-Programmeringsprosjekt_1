@@ -52,10 +52,7 @@ public class MonthlyPower {
             for (int j = 0; j< usage[i].length; j++) {
                 sum += usage[i][j];
             }
-        }System.out.printf("Totalforbruk på en måned er %.2f %n" , sum);
-
-
-
+        }
         return sum;
     }
 
@@ -70,13 +67,13 @@ public class MonthlyPower {
             for(int j = 0; j < powerusage[i].length; j++) {
                 usage += powerusage[i][j];
                 if (usage >= threshold) {
-                    System.out.println("Terskel på " + threshold + " kWh er overskredet.");
+
                     return true;
                 }
             }
             i++;
         }
-        System.out.println("Terskel på " + threshold + " kWh er ikke overskredet.");
+
         return false;
 
 
@@ -92,7 +89,7 @@ public class MonthlyPower {
         }
 
 
-        System.out.printf("strømprisen er %.2f kr %n" , strompris);
+
         return strompris;
     }
 
@@ -108,11 +105,9 @@ public class MonthlyPower {
 
                 if (stromPris > threshold) {
                     support += (stromPris-threshold) * usage[i][j];
-                    //System.out.println("supporten er på " + support);
                 }
             }
         }
-        System.out.printf("Supporten er på %.2f kr%n", support);
         return support;
     }
     // g) Norgesprice for the month
@@ -129,7 +124,6 @@ public class MonthlyPower {
 
         }
         double totpris = forbruk * price;
-        System.out.printf("Prisen med norgespris er %.2f kr%n", totpris);
         return totpris;
 
     }

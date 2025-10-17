@@ -17,20 +17,33 @@ public class MonthMain {
         System.out.println("==============");
         System.out.println();
 
-
-
+        //Oppg a
         MonthlyPower.print_PowerUsage(power_usage_month);
+
+        //Oppg b
         MonthlyPower.print_PowerPrices(power_prices_month);
 
-        MonthlyPower.computePowerUsage(power_usage_month);
+        //Oppg c
+        double totalForbruk = MonthlyPower.computePowerUsage(power_usage_month);
+        System.out.printf("Totalforbruk på en måned er %.2f %n" , totalForbruk);
 
-        MonthlyPower.exceedThreshold(power_prices_month, 1000);
-        MonthlyPower.exceedThreshold(power_prices_month, 5000);
+        //Oppg d
+        boolean over1000 = MonthlyPower.exceedThreshold(power_prices_month, 1000);
+        System.out.println(over1000 ? "Terskel på 1000 kWh er overskredet." : "Terskel på 1000 kWh er ikke overskredet");
+        boolean over5000 = MonthlyPower.exceedThreshold(power_prices_month, 5000);
+        System.out.println(over5000 ? "Terskel på 5000 kWh er overskredet." : "Terskel på 5000 kWh er ikke overskredet");
 
-        MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
-        MonthlyPower.computePowerSupport(power_usage_month,power_prices_month);
+        //Oppg e
+        double spotSum = MonthlyPower.computeSpotPrice(power_usage_month,power_prices_month);
+        System.out.printf("strømprisen er %.2f kr %n" , spotSum);
 
-        MonthlyPower.computeNorgesPrice((power_usage_month));
+        //Oppg f
+        double support = MonthlyPower.computePowerSupport(power_usage_month,power_prices_month);
+        System.out.printf("Supporten er på %.2f kr%n", support);
+
+        //Oppg g
+        double norgesPrisSum = MonthlyPower.computeNorgesPrice((power_usage_month));
+        System.out.printf("Prisen med norgespris er %.2f kr%n", norgesPrisSum);
 
 
 

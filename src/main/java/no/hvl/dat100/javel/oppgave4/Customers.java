@@ -7,20 +7,25 @@ public class Customers {
     private Customer[] customers;
 
     // a) Complete constructor
-    public Customers(int size) {
 
-        // TODO
+    public Customers(int size) {
+        customers = new Customer[size];
+
+
 
     }
 
     // b) count number of non-null references
     public int countNonNull() {
 
-
         int count = 0;
 
-        // TODO
-
+        for (int i = 0; i< customers.length; i++){
+             Customer c = customers[i];
+             if (c!=null){
+                 count++;
+             }
+        }
         return count;
     }
 
@@ -31,6 +36,14 @@ public class Customers {
         Customer c = null;
 
         // TODO
+        for (int i = 0; i < customers.length; i++) {
+            Customer kunde = customers[i];//Henter kunden på plass i.
+
+            if (kunde != null && kunde.getCustomer_id() == customer_id){
+                return kunde;//hvis kunden ikke er null OG id er eksisterende, return kunde. Altså kunden finnes.
+            }
+
+        }
 
         return c;
     }
@@ -41,7 +54,12 @@ public class Customers {
         boolean inserted = false;
 
         // TODO
-
+        for (int i = 0; i < customers.length; i++){
+            if (customers[i]==null) {// Det er ledig plass
+                customers[i] = c;// Setter inn c på i plass
+                return true;
+            }
+        }
         return inserted;
     }
 
@@ -52,6 +70,14 @@ public class Customers {
         Customer c = null;
 
         // TODO
+        for (int i =0; i < customers.length; i++){
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                c = customers[i];
+                customers[i] = null;
+                return  c;
+
+            }
+        }
 
         return c;
     }
@@ -59,10 +85,25 @@ public class Customers {
     // f) return reference table with all customers
     public Customer[] getCustomers() {
 
-        Customer[] customers = null;
+        Customer[] kunder = null;
 
-        // TODO
+        int antKunder = 0;
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] !=null) {
+                antKunder += antKunder;
+            }
+        }
 
-        return customers;
+        kunder = new Customer[antKunder];
+        int posisjon = 0;
+
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null) {
+                kunder[posisjon] = customers[i];
+                posisjon++;
+            }
+        }
+
+        return kunder;
     }
 }
